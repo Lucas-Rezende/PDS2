@@ -12,7 +12,7 @@ public:
     {
         _dono = dono;
         _saldo = 0;
-        unsigned int valor;
+        //unsigned int valor;
     }
 
     /* depositar/retirar dinheiro da conta */
