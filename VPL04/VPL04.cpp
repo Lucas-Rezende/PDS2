@@ -1,60 +1,79 @@
-// números complexos são numeros compostos
-// por uma parte real somada a uma parte imaginária
-
 #include <iostream>
 #include <cmath>
 #include <utility>
 
 using namespace std;
 
-// Tipo abastrato de dados que representa uma número complexo. 
 class Complexo {
-  // Atributos.
-  private:
-    double _real;
-    double _imag;
+private:
+    double real;
+    double imag;
 
-  // Métodos.
-  public:
-    Complexo (double real = 0.0, double imag = 0.0) {
-        _real = real;
-        _imag = imag;
+public:
+    Complexo (double _real, double _imag) {
+        real = _real;
+        imag = _imag;
     }
     double modulo() {
-      return sqrt(_real * _real + _imag * _imag);
+        return sqrt(real*real + imag*imag);
     }
+
     Complexo conjugado() {
-      return Complexo(_real, _imag);
+        return Complexo(real, -imag);
     }
+
     Complexo inverso() {
-      double mod = modulo();
-      return Complexo(_real / mod / mod, _imag / mod / mod);
+        double denom = real*real + imag*imag;
+        return Complexo(real/denom, -imag/denom);
     }
+
     Complexo soma(Complexo y) {
-      return Complexo(_real + y._real, _imag + y._imag);
+        return Complexo(real + y.real, imag + y.imag);
     }
+
     Complexo subtrair(Complexo y) {
-      return Complexo(_real - y._real, _imag - y._imag);
+        return Complexo(real - y.real, imag - y.imag);
     }
-    /*Complexo multiplicar(Complexo y) {
+
+    Complexo multiplicar(Complexo y) {
+        double re = real*y.real - imag*y.imag;
+        double im = real*y.imag + imag*y.real;
+        return Complexo(re, im);
     }
+
     Complexo dividir(Complexo y) {
-    }*/
+        double denom = y.real*y.real + y.imag*y.imag;
+        double re = (real*y.real + imag*y.imag) / denom;
+        double im = (imag*y.real - real*y.imag) / denom;
+        return Complexo(re, im);
+    }
+    double getReal() const {
+    return real;
+    }
+    double getImag() const {
+        return imag;
+    }
 };
 
-pair<double, double> raizes(double a, double b, double c) {
-    double delta = pow(b, 2) - 4*a*c;
-    double first = (-b + sqrt(delta))/2*a;
-    double second = (-b - sqrt(delta))/2*a;
-    return make_pair(first, second);
+pair<Complexo, Complexo> raizes(double a, double b, double c) {
+    double delta = b*b - 4*a*c;
+    if (delta >= 0) {
+        double x1 = (-b + sqrt(delta)) / (2*a);
+        double x2 = (-b - sqrt(delta)) / (2*a);
+        return make_pair(Complexo(x1, 0), Complexo(x2, 0));
+    } else {
+        double re = -b / (2*a);
+        double im = sqrt(-delta) / (2*a);
+        return make_pair(Complexo(re, im), Complexo(re, -im));
+    }
 }
 
-int main () {
-  cout << "Digite os coeficientes da equação f(x) = ax^2 + bx + c:" << endl;
-  double a, b, c;
-  cin >> a >> b >> c;
-  auto r = raizes(a, b, c);
-  cout << "(" << r.first._real << ", " << r.first._imag << ") "
-       << "(" << r.second._real << ", " << r.second._imag << ")" << endl;
-  return 0;
+int main() {
+    cout << "Digite os coeficientes da equação f(x) = ax^2 + bx + c:" << endl;
+    double a, b, c;
+    cin >> a >> b >> c;
+    auto r = raizes(a, b, c);
+    cout << "(" << r.first.getReal() << ", " << r.first.getImag() << ")" << r.second.getReal() << ", " << r.second.getImag() << endl;
+
+    return 0;
 }
