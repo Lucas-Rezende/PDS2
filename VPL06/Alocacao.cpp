@@ -18,3 +18,7 @@ std::string Alocacao::MeuHorario() {
 std::string Alocacao::MeuDia() {
     return _dia;
 }
+
+std::string Alocacao::MinhaSala() {
+    return _sala;
+}

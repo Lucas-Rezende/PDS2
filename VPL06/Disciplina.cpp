@@ -1,30 +1,30 @@
-Disciplina.cpp
-
+#include "Alocacao.hpp"
 #include "Disciplina.hpp"
 #include <algorithm>
 #include <iostream>
+#include <map>
+#include <vector>
+#include <string>
 
 Disciplina::Disciplina(std::string codigo, std::string nome)
 {
-    this->codigo = codigo;
-    this->nome = nome;
+    _codigo = codigo;
+    _nome = nome;
 }
 
 void Disciplina::inserir_alocacao(std::string dia, std::string horario, std::string sala)
 {
     Alocacao nova_alocacao(dia, horario, sala);
-    alocacoes.push_back(nova_alocacao);
-    std::sort(alocacoes.begin(), alocacoes.end(), [](const Alocacao &a1, const Alocacao &a2)
-              { return a1.imprimir_dados() < a2.imprimir_dados(); });
+    _alocacaosave.push_back(nova_alocacao);
 }
 
 void Disciplina::remover_alocacao(std::string horario)
 {
-    for (auto it = alocacoes.begin(); it != alocacoes.end(); ++it)
+    for (auto it = _alocacaosave.begin(); it != _alocacaosave.end(); ++it)
     {
-        if (it->horario == horario)
+        if (it->MeuHorario() == horario)
         {
-            alocacoes.erase(it);
+            _alocacaosave.erase(it);
             break;
         }
     }
@@ -32,9 +32,12 @@ void Disciplina::remover_alocacao(std::string horario)
 
 void Disciplina::imprimir_alocacao()
 {
-    for (const auto &alocacao : alocacoes)
+    for (Alocacao percorrealocacao : _alocacaosave)
     {
-        std::cout << codigo << " " << nome << " ";
-        alocacao.imprimir_dados();
+        std::cout << _codigo << " " << _nome << " " << percorrealocacao.MeuDia() << " " << percorrealocacao.MeuHorario() << " " << percorrealocacao.MinhaSala() << std::endl;
     }
+}
+
+std::string Disciplina::MeuCodigo() {
+    return _codigo;
 }

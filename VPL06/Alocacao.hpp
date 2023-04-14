@@ -15,6 +15,7 @@ public:
     void imprimir_dados();
     std::string MeuHorario();
     std::string MeuDia();
+    std::string MinhaSala();
 };
 
 #endif

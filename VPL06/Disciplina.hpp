@@ -18,6 +18,7 @@ public:
     void inserir_alocacao(std::string dia, std::string horario, std::string sala);
     void remover_alocacao(std::string horario);
     void imprimir_alocacao();
+    std::string MeuCodigo();
 };
 
 #endif

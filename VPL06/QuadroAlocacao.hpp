@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <map>
+#include <string>
+#include <vector>
 
 class QuadroAlocacao
 {
@@ -10,9 +12,9 @@ private:
     std::map<std::string, Disciplina> _alocacaoMap; 
 public:
     void inserir_alocacao(string codigo, string nome, string dia, string horario, string sala);
-    remover_alocacao_disciplina(string codigo, string horario);
+    void remover_alocacao_disciplina(string codigo, string horario);
+    void imprimir_alocacao_completa();
     vector<Disciplina> recuperar_disciplinas_mais_ofertadas();
-    imprimir_alocacao_completa();
 };
 
 #endif
