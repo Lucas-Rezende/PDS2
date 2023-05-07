@@ -1,3 +1,4 @@
+#ifndef FILA_H
 #define FILA_H
 
 struct No;
