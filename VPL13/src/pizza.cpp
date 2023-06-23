@@ -20,8 +20,9 @@ std::string Pizza::descricao() const
     }
     else
     {
-        descricao += " sem borda recheada";
+        descricao += " e sem borda recheada";
     }
+    descricao += ".";
 
     return descricao;	
 }
@@ -33,4 +34,8 @@ Pizza::Pizza(const std::string &sabor,
 			 float valor_unitario) : _sabor(sabor), _pedacos(pedacos), _borda_recheada(borda_recheada), _qtd(qtd), _valor_unitario(valor_unitario)
 {
 	// TODO: Implemente este metodo.
+}
+
+float Pizza::getValor() const {
+    return _valor_unitario * _qtd;
 }

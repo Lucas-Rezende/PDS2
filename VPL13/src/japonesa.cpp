@@ -13,6 +13,7 @@ std::string Japonesa::descricao() const
      */
 
     std::string descricao = std::to_string(_qtd) + "X Comida japonesa - " + (_combinado) + ", " + std::to_string(_sushi) + " sushis, " + std::to_string(_temaki) + " temakis e " + std::to_string(_hots) + " hots.";
+    descricao += ".";
 
     return descricao;
 }
@@ -25,4 +26,8 @@ Japonesa::Japonesa(const std::string &combinado,
                    float valor_unitario) : _combinado(combinado), _sushi(sushi), _temaki(temaki), _hots(hots), _qtd(qtd), _valor_unitario(valor_unitario)   
 {
     // TODO: Implemente este metodo.
+}
+
+float Japonesa::getValor() const {
+    return _valor_unitario * _qtd;
 }

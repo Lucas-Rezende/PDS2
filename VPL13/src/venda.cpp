@@ -22,21 +22,19 @@ void Venda::adicionaPedido(Pedido *p)
 
 void Venda::imprimeRelatorio() const
 {
-    // TODO: Implemente este metodo
-    /**
-     * Aqui voce tem que percorrer a lista de todos os pedidos e imprimir o resumo
-     * de cada um. Por ultimo, devera ser exibido o total de venda e a quantidade
-     * de pedidos processados.
-     */
     float totalVenda = 0.0;
     int quantidadePedidos = 0;
+
     for (Pedido* p : m_pedidos)
     {
+        std::cout << "Pedido " << quantidadePedidos + 1 << "\n";
         std::cout << p->resumo() << "\n";
-        totalVenda += p->calculaTotal();
+
+        totalVenda += p->calculaTotal(); // Somar ao totalVenda o valor do pedido atual
         quantidadePedidos++;
     }
 
-    std::cout << "Total de venda: " << totalVenda << "\n";
-    std::cout << "Quantidade de pedidos processados: " << quantidadePedidos << "\n";
+    std::cout << "Relatorio de Vendas\n";
+    std::cout << "Total de vendas: R$ " << std::fixed << std::setprecision(2) << totalVenda << "\n";
+    std::cout << "Total de pedidos: " << quantidadePedidos << "\n";
 }

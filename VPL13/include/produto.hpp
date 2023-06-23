@@ -22,7 +22,7 @@ class Produto {
    *
    * @return float Valor unitario do produto
    */
-  float getValor() const;
+  virtual float getValor() const;
 
   /**
    * @brief Retorna a descricao detalhada do produto

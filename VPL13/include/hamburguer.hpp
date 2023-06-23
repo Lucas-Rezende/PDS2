@@ -31,11 +31,12 @@ public:
 	 * @return std::string Descricao detalhada do hamburguer
 	 */
 	std::string descricao() const override;
+    float getValor() const override;
 
 private:
 	// TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
 	// (qtd) e valor ja sao herdadas de Produto
-	const std::string &_tipo;
+	const std::string _tipo;
 	bool _artesanal;
 	int _qtd;
 	float _valor_unitario;

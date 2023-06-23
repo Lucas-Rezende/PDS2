@@ -33,6 +33,7 @@ public:
        * @return std::string Descricao da pizza.
        */
       std::string descricao() const override;
+      float getValor() const override;
 
 private:
       // TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade

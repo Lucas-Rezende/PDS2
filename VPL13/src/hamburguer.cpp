@@ -15,12 +15,14 @@ std::string Hamburguer::descricao() const
 
 	if (_artesanal)
 	{
-		descricao += "artesanal";
+		descricao += " artesanal";
 	}
 	else
 	{
-		descricao += "simples";
+		descricao += " simples";
 	}
+	
+	descricao += ".";
 
 	return descricao;
 }
@@ -31,4 +33,8 @@ Hamburguer::Hamburguer(const std::string &tipo,
 					   float valor_unitario) : _tipo(tipo), _artesanal(artesanal), _qtd(qtd), _valor_unitario(valor_unitario)
 {
 	// TODO: Implemente este metodo.
+}
+
+float Hamburguer::getValor() const {
+    return _valor_unitario * _qtd;
 }

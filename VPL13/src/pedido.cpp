@@ -23,8 +23,7 @@ void Pedido::setEndereco(const std::string &endereco)
 
 float Pedido::calculaTotal() const
 {
-    // TODO: Implemente este metodo.
-    float total = 0;
+    float total = 0.0f;
     for (Produto* p : m_produtos)
     {
         total += p->getValor();
@@ -52,6 +51,6 @@ std::string Pedido::resumo() const
     {
         resumo += p->descricao() + "\n";
     }
-    resumo += m_endereco;
+    resumo += "Endereco: " + m_endereco;
     return resumo;
 }

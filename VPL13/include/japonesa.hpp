@@ -35,11 +35,12 @@ public:
 	 * @return std::string Descricao da comida japonesa.
 	 */
 	std::string descricao() const override;
+    float getValor() const override; // declara o método getValor() como sobrescrito
 
 private:
 	// TODO: Declare aqui as variaveis da classe. Note que as variaveis quantidade
 	// (qtd) e valor ja sao herdadas de Produto
-	const std::string &_combinado;
+	const std::string _combinado;
 	int _sushi;
 	int _temaki;
 	int _hots;
