@@ -19,7 +19,6 @@ double Complexo::imag() const {
 }
 
 bool Complexo::operator==(Complexo x) const {
-  // Precisão numérica utilizada.
   static const double epsilon = 1E-6;
 
   return fabs(x.real_ - real_) < epsilon &&

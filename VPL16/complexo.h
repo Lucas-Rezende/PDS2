@@ -5,18 +5,15 @@
 
 // Representa um número complexo
 // (https://pt.wikipedia.org/wiki/N%C3%BAmero_complexo)
+
 class Complexo {
 public:
-// Cria o número complexo 0 + 0i.
 Complexo();
 
-// Cria o número complexo a + 0i.
 Complexo(double a);
 
-// Cria o número complexo a + bi.
 Complexo(double a, double b);
 
-// Retorna a parte real do número complexo corrente.
 double real() const;
 
 // Retorna a parte imaginária do número complexo corrente.
@@ -59,7 +56,7 @@ private:
 
 // Nova implementação com coordenadas euclidianas
 double real_; // Parte real do número complexo.
-double imag_; // Parte imaginária do número complexo.
+double imag_;
 };
 
 #endif // COMPLEXO_H_
